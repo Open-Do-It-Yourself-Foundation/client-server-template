@@ -9,7 +9,7 @@ interface IDatabase {
 
 class MockDaoMock {
 
-    private readonly dbFilePath = 'src/daos/MockDb/MockDb.json';
+    private readonly dbFilePath = 'src/server/daos/MockDb/MockDb.json';
 
 
     protected openDb(): Promise<IDatabase> {

@@ -4,6 +4,8 @@ import path from 'path';
 import helmet from 'helmet';
 import StatusCodes from 'http-status-codes';
 import express, { NextFunction, Request, Response } from 'express';
+import cors from 'cors';
+
 
 import 'express-async-errors';
 
@@ -23,6 +25,8 @@ const { BAD_REQUEST } = StatusCodes;
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser(cookieProps.secret));
+app.use(cors());
+
 
 // Show routes called in console during development
 if (process.env.NODE_ENV === 'development') {
