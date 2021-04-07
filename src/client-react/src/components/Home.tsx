@@ -11,6 +11,7 @@ import axios from 'axios';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { Link } from 'react-router-dom';
+import Header from './Header';
 
 const useStyles = makeStyles({
     table: {
@@ -43,14 +44,21 @@ const Home = () => {
        
     }
 
+    
     const deleteCustomer = async (event: any, id: number) => {
        //delete code will be here
+       event.persist();
+       await axios.delete(`http://localhost:4000/api/users/delete/${id}`).then(() => {
+            getData();
+
+        })
     }
 
     return (
       
 
         <TableContainer component={Paper}>
+            <Header/>
         <Table className={classes.table} aria-label="simple table">
             <TableHead>
                 <TableRow>
@@ -66,7 +74,7 @@ const Home = () => {
                         <TableCell align="center">{user.email}</TableCell>
                         
                         <TableCell align="center">
-                        <Link to={`edit/${user.id}`}> <EditIcon className={classes.marginRight} /> </Link>
+                        <Link to={`edit/${user.email}`}> <EditIcon className={classes.marginRight} /> </Link>
                            <DeleteIcon onClick={e => deleteCustomer(e, user.id)} /> 
                         </TableCell>
                     </TableRow>
