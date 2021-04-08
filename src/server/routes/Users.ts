@@ -67,6 +67,13 @@ router.delete('/delete/:id', async (req: IRequest, res: Response) => {
 });
 
 
+router.get('/getOne/:email', async (req: Request, res: Response) => {
+    const {email}=req.params;
+    const users = await userDao.getOne(String(email));
+    return res.status(OK).json({users});
+});
+
+
 
 /******************************************************************************
  *                                     Export

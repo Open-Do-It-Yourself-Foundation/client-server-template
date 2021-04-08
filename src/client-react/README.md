@@ -16,6 +16,6 @@ In the project directory, you can go to src/client-react:
 
 
 <h2>Project screenshot</h2>
-<img src="./src/client-react/src/assets/images/screen1.png" alt="">
+<img src="../client-react/src/assets/images/screen1.png" alt="">
 <br/>
-<img src="./src/client-react/src/assets/images/screen2.png" alt="">
+<img src="../client-react/src/assets/images/screen2.png" alt="">
